@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "31345902025",
-    "firebase_url": "https://spo2-beta.firebaseio.com",
-    "project_id": "spo2-beta",
-    "storage_bucket": "spo2-beta.appspot.com"
+    "project_number": "246623670384",
+    "firebase_url": "https://spo2-43a18.firebaseio.com",
+    "project_id": "spo2-43a18",
+    "storage_bucket": "spo2-43a18.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:31345902025:android:2a6d6f3ccfbf4f4e4b2818",
+        "mobilesdk_app_id": "1:246623670384:android:4ba35e69b989b71959a4b5",
         "android_client_info": {
           "package_name": "com.spo2.Spo2_project"
         }
       },
       "oauth_client": [
         {
-          "client_id": "31345902025-oq231nk260cgel5isqavv4tqto03cufj.apps.googleusercontent.com",
+          "client_id": "246623670384-t7gr1q7co44m8fhf4ktlhuifjeij8m3a.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyANafihCP7vd5DZOx3RK2n-PI1FcONFmV0"
+          "current_key": "AIzaSyAcKla1xAYM0t0HoBAoQm3YocH1RL9uRB0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "31345902025-oq231nk260cgel5isqavv4tqto03cufj.apps.googleusercontent.com",
+              "client_id": "246623670384-t7gr1q7co44m8fhf4ktlhuifjeij8m3a.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

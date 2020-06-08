@@ -1,9 +1,11 @@
+import 'package:Spo2_project/stayfit-health-home.dart';
 import 'package:flutter/material.dart';
 import 'loginPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'home.dart';
+import 'stayfit-health-home.dart';
 import 'login-register.dart';
 
 void main(){
@@ -11,6 +13,7 @@ void main(){
 
 }
 final FirebaseAuth auth = FirebaseAuth.instance;
+
 class spo2App extends StatelessWidget{
 
   @override
@@ -28,12 +31,13 @@ class spo2App extends StatelessWidget{
         stream: auth.onAuthStateChanged,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return Home();
+            return StayfitHealthPage();
           }
           return LoginRegister();
         },
       ),
       routes: <String, WidgetBuilder>{
+        '/stayfit-health-home' : (BuildContext context) => new StayfitHealthPage(),
         '/home': (BuildContext context) => new Home(),
         '/login': (BuildContext context) => new LoginRegister()
       },

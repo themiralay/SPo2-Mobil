@@ -142,14 +142,14 @@ class _LoginRegisterState extends State<LoginRegister> {
         });
         try {
           FirebaseUser user = (await FirebaseAuth.instance.signInWithEmailAndPassword(email: _email, password: _password)).user;
-          Navigator.of(context).pushReplacementNamed('/home');
+          Navigator.of(context).pushReplacementNamed('/stayfit-health-home');
         } catch (error) {
           switch (error.code) {
             case "ERROR_USER_NOT_FOUND":
               {
                 _sheetController.setState(() {
                   errorMsg =
-                  "There is no user with such entries. Please try again.";
+                  "Böyle bir kullanıcı bulunamadı. Kontrol ediniz.";
 
                   _loading = false;
                 });
@@ -167,7 +167,7 @@ class _LoginRegisterState extends State<LoginRegister> {
             case "ERROR_WRONG_PASSWORD":
               {
                 _sheetController.setState(() {
-                  errorMsg = "Password doesn\'t match your email.";
+                  errorMsg = "Şifreniz veya E-posta adresiniz hatalıdır.";
                   _loading = false;
                 });
                 showDialog(
@@ -210,7 +210,7 @@ class _LoginRegisterState extends State<LoginRegister> {
           UserUpdateInfo userUpdateInfo = new UserUpdateInfo();
           userUpdateInfo.displayName = _displayName;
           user.updateProfile(userUpdateInfo).then((onValue) {
-            Navigator.of(context).pushReplacementNamed('/home');
+            Navigator.of(context).pushReplacementNamed('/stayfit-health-home');
             Firestore.instance.collection('users').document().setData(
                 {'email': _email, 'displayName': _displayName}).then((onValue) {
               _sheetController.setState(() {
@@ -223,7 +223,7 @@ class _LoginRegisterState extends State<LoginRegister> {
             case "ERROR_EMAIL_ALREADY_IN_USE":
               {
                 _sheetController.setState(() {
-                  errorMsg = "This email is already in use.";
+                  errorMsg = "Kullanıcı zaten kayıtlı.";
                   _loading = false;
                 });
                 showDialog(

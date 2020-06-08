@@ -6,15 +6,14 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'CircleProgress.dart';
 import 'main.dart';
 
-class Home extends StatefulWidget {
+class Dashboard extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _DashboardState createState() => _DashboardState();
 }
 
-class _HomeState extends State<Home>
+class _DashboardState extends State<Dashboard>
     with SingleTickerProviderStateMixin {
   bool isLoading = false;
-
 
   final databaseReference = FirebaseDatabase.instance.reference();
 
@@ -27,18 +26,18 @@ class _HomeState extends State<Home>
     super.initState();
 
     databaseReference
-        .child('BPM')
+        .child('ESP32_Device')
         .once()
         .then((DataSnapshot snapshot) {
-      double temp = snapshot.value;
-      double humidity = snapshot.value;
+      double temp = snapshot.value['Temperature']['Data'];
+      double humidity = snapshot.value['Humidity']['Data'];
 
       isLoading = true;
-      _HomeInit(temp, humidity);
+      _DashboardInit(temp, humidity);
     });
   }
 
-  _HomeInit(double temp, double humid) {
+  _DashboardInit(double temp, double humid) {
     progressController = AnimationController(
         vsync: this, duration: Duration(milliseconds: 5000)); //5s
 
@@ -65,9 +64,7 @@ class _HomeState extends State<Home>
         centerTitle: true,
         automaticallyImplyLeading: false,
         leading: new IconButton(
-            icon: Icon(Icons.reorder),
-            onPressed: handleLoginOutPopup
-        ),
+            icon: Icon(Icons.reorder), onPressed: handleLoginOutPopup),
       ),
       body: Center(
           child: isLoading
@@ -167,9 +164,7 @@ class _HomeState extends State<Home>
       isLoading = true;
     });
 
-    await  auth.signOut().then((onValue) {
-      Navigator.of(context).pushReplacementNamed('/login');
-    });
+    await FirebaseAuth.instance.signOut();
 
     this.setState(() {
       isLoading = false;
