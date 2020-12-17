@@ -2,7 +2,7 @@
 
  Proje olarak hazırlanan SPO2 Cihazının mobil arayüzüne erişebilirsiniz. Bu uygulama Flutter Freamwork kullanılarak Dart dilinde geliştirilmiştir.
 
-Vo-Coder 
+VisorAlpha 
 
 ## Uygulamayı Çalıştır
 
